@@ -111,11 +111,8 @@ class Unstoppable_LMS_Admin_Notices {
         // Welcome/Setup notice (shows once after activation).
         $this->maybe_show_welcome_notice();
 
-        // License activation reminder.
+        // License activation reminder (Pro only - skipped in free version).
         $this->maybe_show_license_notice();
-
-        // Review request (shows after 7 days of use).
-        $this->maybe_show_review_notice();
 
         // Important announcements.
         $this->maybe_show_announcement_notice();
@@ -213,58 +210,6 @@ class Unstoppable_LMS_Admin_Notices {
     }
 
     /**
-     * Review request notice after 7 days.
-     */
-    private function maybe_show_review_notice() {
-        // Check if already dismissed.
-        if ( get_option( $this->prefix . '_review_notice_dismissed' ) ) {
-            return;
-        }
-
-        // Check install date.
-        $install_date = get_option( $this->prefix . '_install_date' );
-        if ( ! $install_date ) {
-            return;
-        }
-
-        // Show after 7 days.
-        if ( time() < ( $install_date + ( 7 * DAY_IN_SECONDS ) ) ) {
-            return;
-        }
-
-        // Only show to admins.
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-
-        // Only show on plugin pages.
-        $screen = get_current_screen();
-        if ( ! $screen || strpos( $screen->id, 'unstoppable-lms' ) === false ) {
-            return;
-        }
-
-        ?>
-        <div class="notice notice-info is-dismissible unstoppable-lms-notice" data-notice="review">
-            <p>
-                <?php
-                printf(
-                    /* translators: %s: Plugin name */
-                    esc_html__( 'Enjoying %s? Please leave a review to help others discover the plugin!', 'unstoppable-lms' ),
-                    '<strong>' . esc_html( $this->plugin_name ) . '</strong>'
-                );
-                ?>
-                <a href="https://wordpress.org/support/plugin/unstoppable-lms/reviews/#new-post" target="_blank" class="button button-primary" style="margin-left: 10px;">
-                    <?php esc_html_e( 'Leave a Review', 'unstoppable-lms' ); ?>
-                </a>
-                <button type="button" class="button unstoppable-lms-dismiss-notice" style="margin-left: 5px;">
-                    <?php esc_html_e( 'Maybe Later', 'unstoppable-lms' ); ?>
-                </button>
-            </p>
-        </div>
-        <?php
-    }
-
-    /**
      * Important announcements (security updates, breaking changes, etc.).
      */
     private function maybe_show_announcement_notice() {
@@ -324,7 +269,7 @@ class Unstoppable_LMS_Admin_Notices {
         // Sanitize and validate notice type.
         $notice = isset( $_POST['notice'] ) ? sanitize_key( $_POST['notice'] ) : '';
 
-        $allowed_notices = array( 'welcome', 'setup', 'review', 'license', 'announcement' );
+        $allowed_notices = array( 'welcome', 'setup', 'license', 'announcement' );
         if ( empty( $notice ) || ! in_array( $notice, $allowed_notices, true ) ) {
             wp_send_json_error( array( 'message' => __( 'Invalid notice type.', 'unstoppable-lms' ) ) );
         }

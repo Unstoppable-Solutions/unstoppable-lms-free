@@ -1,21 +1,44 @@
-# __PLUGIN_SLUG__
+# unstoppable-lms
 
 > This file is for Claude Code sessions working on this repo. For a human-oriented overview see `README.md`.
 
+## ✅ This is a FREE plugin (WordPress.org)
+
+- Distributed via **WordPress.org** plugin directory.
+- Must NOT contain: license system, updater, review nags, upgrade nags, or any trialware.
+- Pairs with a separate **Pro** repo: `Unstoppable-Solutions/unstoppable-lms` (private).
+
 ## What this plugin does
 
-__PLUGIN_SHORT_DESCRIPTION__
+A clean, reliable Learning Management System for WordPress. Create courses, track progress, and manage students — without the bloat. Free version supports 1 course with 5 lessons, unlimited students.
 
-- **Main PHP file:** `__PLUGIN_SLUG__.php`
-- **Code prefix:** `__PREFIX___` (constants / class prefix); `__prefix___` (lowercase for options / tables)
-- **Package:** `__PLUGIN_PACKAGE__`
-- **WordPress.org slug:** `__PLUGIN_SLUG__`
-- **WP.org URL:** https://wordpress.org/plugins/__PLUGIN_SLUG__/
+- **Main PHP file:** `unstoppable-lms.php`
+- **Code prefix:** `UNSTOPPABLE_LMS` (constants / class prefix); `unstoppable_lms` (lowercase for options / tables)
+- **Package:** `Unstoppable_LMS`
+- **WordPress.org slug:** `unstoppable-lms`
+- **WP.org URL:** https://wordpress.org/plugins/unstoppable-lms/
 
 ## Base44 Pro mapping
 
-- **Base44 app:** _(none yet — fill in when a Pro version is scaffolded there)_
-- When updating code that affects both the free (this repo) and the Base44 Pro app, apply the matching change in both places in the same session.
+- **Base44 app:** `https://fm-web-solutions-plugin-hub-d05f2182.base44.app` (Plugins entity for Pro version)
+- When updating code that affects both the free (this repo) and the Pro repo, apply the matching change in both places in the same session.
+
+## Free plugin rules that MUST hold
+
+Per the Stand Alone Plugin Guide, these are **NEVER** allowed in this repo:
+- ❌ License class and API
+- ❌ Updater class
+- ❌ "Check for Updates" button
+- ❌ License reminder notice
+- ❌ Upgrade-to-Pro notice (beyond a simple link)
+- ❌ Review request notice
+- ❌ Locked or trial features
+- ❌ Custom CSS/JS/PHP input field
+- ❌ Inline `<style>` or `<script>` tags
+
+What IS required:
+- ✅ Gold admin menu branding (enqueued CSS)
+- ✅ Full security standards
 
 ## Release workflow
 
@@ -23,8 +46,8 @@ Releases are deployed to WordPress.org SVN automatically by GitHub Actions. The 
 
 1. Finish feature work on `main`.
 2. Bump the version in **all** of these:
-   - `__PLUGIN_SLUG__.php` — `Version:` header
-   - `__PLUGIN_SLUG__.php` — `__PREFIX___VERSION` constant (if present)
+   - `unstoppable-lms.php` — `Version:` header
+   - `unstoppable-lms.php` — `UNSTOPPABLE_LMS_VERSION` constant
    - `readme.txt` — `Stable tag:`
    - `readme.txt` — add a `== Changelog ==` entry
 3. Commit and push `main`.
@@ -60,8 +83,8 @@ _(none yet — add here as you ignore specific checks, one bullet per site, with
   1. Make the change on `main` (or a branch).
   2. Watch Plugin Check CI — do not merge red.
   3. For a release: follow the Release workflow section above.
-- The free plugin and its Pro add-on live in **separate repos**. This repo is the free side; Pro has its own repo (private) when it exists.
+- The free plugin and its Pro add-on live in **separate repos**. This repo is the free side; Pro is at `Unstoppable-Solutions/unstoppable-lms` (private).
 
 ## Repository layout
 
-Standard WordPress plugin layout — `__PLUGIN_SLUG__.php` is the bootstrap, `includes/` holds the classes, `assets/` holds CSS/JS, `languages/` holds the `.pot`, `readme.txt` is the WP.org directory listing, `.github/` holds the CI and deploy workflows.
+Standard WordPress plugin layout — `unstoppable-lms.php` is the bootstrap, `includes/` holds the classes, `assets/` holds CSS/JS, `languages/` holds the `.pot`, `readme.txt` is the WP.org directory listing, `.github/` holds the CI and deploy workflows.
