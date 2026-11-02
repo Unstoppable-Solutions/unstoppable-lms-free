@@ -45,13 +45,27 @@ class Unstoppable_LMS_Admin_Menus {
         // Course Builder - hidden from menu, accessible via direct URL only
         add_submenu_page( '', __( 'Course Builder', 'unstoppable-lms' ), __( 'Course Builder', 'unstoppable-lms' ), 'edit_lms_courses', 'unstoppable-lms-course-builder', array( __CLASS__, 'render_course_builder' ) );
         add_submenu_page( 'unstoppable-lms', __( 'Students', 'unstoppable-lms' ), __( 'Students', 'unstoppable-lms' ), 'manage_lms_students', 'unstoppable-lms-students', array( __CLASS__, 'render_students' ) );
-        // Pro features - show upgrade page
-        add_submenu_page( 'unstoppable-lms', __( 'Gradebook', 'unstoppable-lms' ), __( 'Gradebook ⭐', 'unstoppable-lms' ), 'view_lms_reports', 'unstoppable-lms-gradebook', array( __CLASS__, 'render_pro_feature_gradebook' ) );
-        add_submenu_page( 'unstoppable-lms', __( 'Classes', 'unstoppable-lms' ), __( 'Classes ⭐', 'unstoppable-lms' ), 'edit_lms_courses', 'unstoppable-lms-cohorts', array( __CLASS__, 'render_pro_feature_cohorts' ) );
-        add_submenu_page( 'unstoppable-lms', __( 'Discussions', 'unstoppable-lms' ), __( 'Discussions ⭐', 'unstoppable-lms' ), 'edit_lms_courses', 'unstoppable-lms-discussions', array( __CLASS__, 'render_pro_feature_discussions' ) );
+
+        // Pro features - show real features if Pro is active, otherwise show upgrade page.
+        $is_pro = defined( 'UNSTOPPABLE_LMS_PRO' ) && UNSTOPPABLE_LMS_PRO;
+
+        if ( $is_pro ) {
+            // Pro is active - let Pro add its own menu items via hook.
+            do_action( 'unstoppable_lms_register_pro_menus' );
+        } else {
+            // Free only - show upgrade teasers.
+            add_submenu_page( 'unstoppable-lms', __( 'Gradebook', 'unstoppable-lms' ), __( 'Gradebook ⭐', 'unstoppable-lms' ), 'view_lms_reports', 'unstoppable-lms-gradebook', array( __CLASS__, 'render_pro_feature_gradebook' ) );
+            add_submenu_page( 'unstoppable-lms', __( 'Classes', 'unstoppable-lms' ), __( 'Classes ⭐', 'unstoppable-lms' ), 'edit_lms_courses', 'unstoppable-lms-cohorts', array( __CLASS__, 'render_pro_feature_cohorts' ) );
+            add_submenu_page( 'unstoppable-lms', __( 'Discussions', 'unstoppable-lms' ), __( 'Discussions ⭐', 'unstoppable-lms' ), 'edit_lms_courses', 'unstoppable-lms-discussions', array( __CLASS__, 'render_pro_feature_discussions' ) );
+        }
+
         add_submenu_page( 'unstoppable-lms', __( 'Reports', 'unstoppable-lms' ), __( 'Reports', 'unstoppable-lms' ), 'view_lms_reports', 'unstoppable-lms-reports', array( __CLASS__, 'render_reports' ) );
         add_submenu_page( 'unstoppable-lms', __( 'Settings', 'unstoppable-lms' ), __( 'Settings', 'unstoppable-lms' ), 'manage_lms_settings', 'unstoppable-lms-settings', array( __CLASS__, 'render_settings' ) );
-        add_submenu_page( 'unstoppable-lms', __( 'Upgrade to Pro', 'unstoppable-lms' ), '<span style="color: #f0b849;">⭐ ' . __( 'Upgrade to Pro', 'unstoppable-lms' ) . '</span>', 'manage_lms_settings', 'unstoppable-lms-upgrade', array( __CLASS__, 'render_upgrade_page' ) );
+
+        // Only show Upgrade to Pro if Pro is not active.
+        if ( ! $is_pro ) {
+            add_submenu_page( 'unstoppable-lms', __( 'Upgrade to Pro', 'unstoppable-lms' ), '<span style="color: #f0b849;">⭐ ' . __( 'Upgrade to Pro', 'unstoppable-lms' ) . '</span>', 'manage_lms_settings', 'unstoppable-lms-upgrade', array( __CLASS__, 'render_upgrade_page' ) );
+        }
     }
 
     /**
