@@ -1,0 +1,98 @@
+/**
+ * Theme LMS Admin Styles
+ *
+ * @package Theme_LMS
+ * @since 1.0.0
+ */
+
+.theme-lms-admin-app {
+    margin-top: 20px;
+}
+
+/* Attachment list for lesson materials */
+.lms-attachment-list {
+    margin-bottom: 10px;
+}
+
+.lms-attachment-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.lms-attachment-item span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lms-attachment-item .remove-attachment {
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px 8px;
+}
+
+.lms-attachment-item .remove-attachment:hover {
+    color: #d63638;
+}
+
+/* Lesson display on frontend */
+.lms-lesson-materials {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.lms-lesson-materials h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #646970;
+}
+
+.lms-material-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #1d2327;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lms-material-item:hover {
+    border-color: #2271b1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lms-material-item .dashicons {
+    margin-right: 12px;
+    color: #2271b1;
+}
+
+.lms-material-item .material-info {
+    flex: 1;
+}
+
+.lms-material-item .material-title {
+    font-weight: 500;
+}
+
+.lms-material-item .material-size {
+    font-size: 12px;
+    color: #646970;
+}
+
+.lms-material-item .download-icon {
+    color: #646970;
+}

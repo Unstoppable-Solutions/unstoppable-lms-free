@@ -1,0 +1,209 @@
+/**
+ * Theme LMS Frontend Styles
+ *
+ * @package Theme_LMS
+ * @since 1.0.0
+ */
+
+:root {
+    --lms-primary: #3B82F6;
+    --lms-secondary: #10B981;
+    --lms-text: #1F2937;
+    --lms-background: #F9FAFB;
+}
+
+.lms-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E5E7EB;
+    border-radius: 4px;
+}
+
+.lms-progress-bar__fill {
+    height: 100%;
+    background: var(--lms-primary);
+    border-radius: 4px;
+}
+
+.lms-btn {
+    display: inline-flex;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.lms-btn--primary {
+    background: var(--lms-primary);
+    color: white;
+}
+
+.lms-btn--secondary {
+    background: white;
+    color: var(--lms-text);
+    border: 1px solid #E5E7EB;
+}
+
+/* Embedded PDF Viewer */
+.lms-embedded-materials {
+    margin: 24px 0;
+}
+
+.lms-pdf-section {
+    display: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.lms-pdf-section.active {
+    display: block;
+}
+
+.lms-pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #1d2327;
+    color: #fff;
+}
+
+.lms-pdf-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lms-pdf-title .dashicons {
+    opacity: 0.8;
+}
+
+.lms-pdf-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.lms-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.lms-pdf-btn:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.lms-pdf-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.lms-pdf-viewer {
+    background: #525659;
+    min-height: 600px;
+}
+
+.lms-pdf-viewer iframe {
+    display: block;
+}
+
+/* PDF Navigation for multiple PDFs */
+.lms-pdf-nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.lms-pdf-nav-btn {
+    padding: 10px 16px;
+    background: #f0f0f1;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.lms-pdf-nav-btn:hover {
+    background: #e0e0e0;
+}
+
+.lms-pdf-nav-btn.active {
+    background: var(--lms-primary);
+    color: #fff;
+    border-color: var(--lms-primary);
+}
+
+/* Downloadable Materials */
+.lms-lesson-materials {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.lms-lesson-materials h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #646970;
+}
+
+.lms-material-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #1d2327;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lms-material-item:hover {
+    border-color: var(--lms-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lms-material-item .dashicons {
+    margin-right: 12px;
+    color: var(--lms-primary);
+}
+
+.lms-material-item .material-info {
+    flex: 1;
+}
+
+.lms-material-item .material-title {
+    display: block;
+    font-weight: 500;
+}
+
+.lms-material-item .material-size {
+    display: block;
+    font-size: 12px;
+    color: #646970;
+}
+
+.lms-material-item .download-icon {
+    color: #646970;
+}
