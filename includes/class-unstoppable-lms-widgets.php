@@ -303,7 +303,7 @@ class Unstoppable_LMS_Widgets {
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 $completed = $wpdb->get_var(
                     $wpdb->prepare(
-                        "SELECT status FROM {$progress_table} WHERE user_id = %d AND lesson_id = %d AND course_id = %d",
+                        "SELECT status FROM {$progress_table} WHERE user_id = %d AND item_id = %d AND course_id = %d AND item_type = 'lesson'",
                         $user_id,
                         $lesson->ID,
                         $course->ID
