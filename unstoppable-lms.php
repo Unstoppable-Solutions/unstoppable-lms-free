@@ -3,13 +3,13 @@
  * Plugin Name: Unstoppable LMS
  * Plugin URI: https://unstoppablesolutions.app/plugins/unstoppable-lms/
  * Description: A clean, reliable Learning Management System for WordPress. Create courses, track progress, and manage students — without the bloat. Upgrade to Pro for gradebook, discussions, cohorts, and more.
- * Version: 1.6.5
+ * Version: 1.7.0
  * Author: Unstoppable Solutions
  * Author URI: https://unstoppablesolutions.app
  * Text Domain: unstoppable-lms
  * Domain Path: /languages
  * Requires at least: 5.8
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin version - update this with each release.
-define( 'UNSTOPPABLE_LMS_VERSION', '1.6.5' );
+define( 'UNSTOPPABLE_LMS_VERSION', '1.7.0' );
 
 // Plugin slug.
 define( 'UNSTOPPABLE_LMS_SLUG', 'unstoppable-lms' );
@@ -145,6 +145,12 @@ final class Unstoppable_LMS {
 
         // REST API.
         require_once UNSTOPPABLE_LMS_PLUGIN_DIR . 'includes/api/class-unstoppable-lms-rest-api.php';
+
+        // Dashboard widgets (v1.7.0+).
+        require_once UNSTOPPABLE_LMS_PLUGIN_DIR . 'includes/class-unstoppable-lms-widgets.php';
+
+        // Email notifications (v1.7.0+).
+        require_once UNSTOPPABLE_LMS_PLUGIN_DIR . 'includes/class-unstoppable-lms-emails.php';
     }
 
     /**
@@ -220,6 +226,12 @@ final class Unstoppable_LMS {
             Unstoppable_LMS_Admin::init();
             new Unstoppable_LMS_Admin_Notices();
         }
+
+        // Dashboard widgets (v1.7.0+).
+        Unstoppable_LMS_Widgets::init();
+
+        // Email notifications (v1.7.0+).
+        Unstoppable_LMS_Emails::init();
 
         /**
          * Fires after Unstoppable LMS is fully initialized.

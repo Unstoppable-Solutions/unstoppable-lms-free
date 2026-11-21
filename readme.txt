@@ -2,8 +2,8 @@
 Contributors: paramedic192
 Tags: lms, learning management system, courses, elearning, education
 Requires at least: 5.8
-Tested up to: 6.7
-Stable tag: 1.6.5
+Tested up to: 6.8
+Stable tag: 1.7.0
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,21 @@ Yes. All data stays on your server. We don't send student data anywhere. The onl
 
 == Changelog ==
 
+= 1.7.0 =
+* New: Course progress widget for dashboard - students see their active courses at a glance
+* New: "Continue Learning" button takes students directly to their last lesson
+* New: Course completion emails - automatic notification when students finish
+* New: Improved admin dashboard with quick stats (enrolled students, completion rates)
+* New: Bulk enroll students from CSV file
+* New: PHP 8.3 compatibility verified
+* Improved: Faster progress tracking with optimized database queries
+* Improved: Better mobile responsiveness on course pages
+* Improved: Cleaner lesson navigation with previous/next buttons
+* Improved: Admin menu now shows unread count badges
+* Fixed: Progress not saving on some hosting configurations
+* Fixed: Course ordering now respects menu_order properly
+* Tested: WordPress 6.8 compatibility confirmed
+
 = 1.6.5 =
 * New: "Preview as Student" mode - admins can view courses exactly as students see them
 * Fixed: PHP 8.1+ deprecation warning in admin menu registration (null to string)
@@ -138,6 +153,9 @@ Yes. All data stays on your server. We don't send student data anywhere. The onl
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.7.0 =
+Major update! New course progress widget, continue learning feature, completion emails, bulk enrollment, and WordPress 6.8 compatibility. Performance improvements throughout.
 
 = 1.6.1 =
 Minor improvements and plugin standards compliance.
