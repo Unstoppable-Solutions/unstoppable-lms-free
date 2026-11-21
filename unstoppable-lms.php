@@ -219,8 +219,9 @@ final class Unstoppable_LMS {
 
         Unstoppable_LMS_Shortcodes::init();
 
-        // Student preview mode - runs on both admin and frontend.
-        Unstoppable_LMS_Student_Preview::init();
+        // Student preview mode - temporarily disabled pending fix.
+        // TODO: Fix user_has_cap filter causing activation crash.
+        // Unstoppable_LMS_Student_Preview::init();
 
         if ( is_admin() ) {
             Unstoppable_LMS_Admin::init();
